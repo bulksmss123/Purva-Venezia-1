@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Purva Venezia | Luxury Real Estate Bengaluru</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS Library for subtle scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1a2a3f;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Header / Nav */
+    header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 18px 0;
+    }
+
+    .logo h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #B78C4A, #8B5A2B);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #5a6e7c;
+      display: block;
+      letter-spacing: 0;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c3e4e;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #B78C4A;
+    }
+    .contact-btn {
+      background: #B78C4A;
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+    .contact-btn:hover {
+      background: #9b6e36;
+      color: white;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(110deg, #fef9f0 0%, #f5ede1 100%);
+      padding: 70px 0 80px;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+    .hero-text {
+      flex: 1.2;
+    }
+    .hero-text .badge {
+      background: rgba(183, 140, 74, 0.15);
+      color: #8B5A2B;
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #1e2f3c;
+      margin-bottom: 20px;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #3e5a6b;
+      margin-bottom: 30px;
+      max-width: 550px;
+    }
+    .details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 30px 0;
+    }
+    .details-list i {
+      width: 28px;
+      color: #B78C4A;
+    }
+    .hero-image {
+      flex: 1;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2);
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .hero-image:hover img {
+      transform: scale(1.02);
+    }
+
+    /* cards section */
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #1e2f3c;
+    }
+    .section-sub {
+      text-align: center;
+      color: #6c7f8e;
+      max-width: 680px;
+      margin: 0 auto 50px auto;
+    }
+    .amenities {
+      padding: 80px 0;
+      background: #ffffff;
+    }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+    .card {
+      background: #ffffff;
+      padding: 30px 24px;
+      border-radius: 32px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+    .card i {
+      font-size: 2.5rem;
+      color: #B78C4A;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .card p {
+      color: #5f6f7e;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+    }
+
+    /* about / contact section */
+    .about-section, .contact-section {
+      padding: 70px 0;
+      background: #faf8f4;
+    }
+    .contact-section {
+      background: #ffffff;
+    }
+    .two-col {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: flex-start;
+    }
+    .col {
+      flex: 1;
+    }
+    .contact-info {
+      background: #f2ede5;
+      padding: 32px;
+      border-radius: 32px;
+    }
+    .contact-info i {
+      margin-right: 12px;
+      color: #B78C4A;
+    }
+    .contact-detail {
+      margin: 24px 0;
+    }
+    .btn-gold {
+      display: inline-block;
+      background: #B78C4A;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-gold:hover {
+      background: #9b6e36;
+    }
+    /* Footer */
+    footer {
+      background: #0e1c28;
+      color: #cfdfed;
+      padding: 48px 0 24px;
+    }
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .footer-col h4 {
+      color: #e9c891;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .footer-col p, .footer-col a {
+      color: #b9cddf;
+      text-decoration: none;
+      line-height: 1.8;
+    }
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #2a3e4e;
+      padding-top: 28px;
+      font-size: 0.85rem;
+    }
+    /* inner page styling (modals or inline pages) */
+    .page-card {
+      background: white;
+      border-radius: 28px;
+      padding: 40px;
+      margin: 40px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    }
+    .hidden-page {
+      display: none;
+    }
+    .active-page {
+      display: block;
+    }
+    .footer-links a {
+      margin-right: 20px;
+    }
+    i.fa, i.far, i.fas {
+      margin-right: 6px;
+    }
+    @media (max-width: 780px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .hero-text h1 {
+        font-size: 2.3rem;
+      }
+      .container {
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <h1>Purva Venezia</h1>
+        <span>Powered by GETTA BUSINESS VENTURES PVT LTD</span>
+      </div>
+      <div class="nav-links">
+        <a href="#" data-page="home" class="nav-link active">Home</a>
+        <a href="#" data-page="about" class="nav-link">About</a>
+        <a href="#" data-page="contact" class="nav-link">Contact</a>
+        <a href="#" data-page="privacy" class="nav-link">Privacy</a>
+        <a href="#" data-page="terms" class="nav-link">Terms</a>
+        <a href="#" data-page="contact" class="contact-btn">Enquire Now</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HOME PAGE (default visible) -->
+  <div id="home-page" class="page-content active-page">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text" data-aos="fade-right">
+            <div class="badge"><i class="fas fa-crown"></i> Premium Real Estate</div>
+            <h1>Purva Venezia<br>Where Elegance Meets Comfort</h1>
+            <p>Experience unmatched luxury living in the heart of Yeshwanthpur, Bengaluru. Designed for discerning homeowners.</p>
+            <div class="details-list">
+              <div><i class="fas fa-map-marker-alt"></i> Survey No 269/3, Door No 1302, 6th Cross Road, KN Extension, Yeshwanthpur, Bengaluru - 560022</div>
+              <div><i class="fas fa-phone-alt"></i> +91 9606904856</div>
+              <div><i class="fas fa-envelope"></i> drharish77@gmail.com</div>
+              <div><i class="fas fa-building"></i> RERA Registered | Ground floor luxury residences</div>
+            </div>
+            <a href="#" data-page="contact" class="btn-gold nav-link"><i class="fas fa-calendar-check"></i> Schedule a Visit</a>
+          </div>
+          <div class="hero-image" data-aos="fade-left">
+            <img src="https://placehold.co/800x600/DDD5C9/B78C4A?text=Purva+Venezia+Luxury+Estate" alt="Purva Venezia Luxury View">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="amenities">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Signature Amenities</h2>
+        <p class="section-sub" data-aos="fade-up">Curated spaces that redefine modern living</p>
+        <div class="grid-cards">
+          <div class="card" data-aos="zoom-in"><i class="fas fa-swimming-pool"></i><h3>Infinity Pool</h3><p>Resort-style swimming pool with sun deck.</p></div>
+          <div class="card" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-dumbbell"></i><h3>Fitness Studio</h3><p>State-of-the-art gym & yoga pavilion.</p></div>
+          <div class="card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-tree"></i><h3>Landscaped Gardens</h3><p>Lush greenery & meditation zones.</p></div>
+          <div class="card" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-shield-alt"></i><h3>24/7 Security</h3><p>Smart surveillance & controlled access.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="container">
+        <div class="two-col">
+          <div class="col" data-aos="fade-right">
+            <h2 class="section-title" style="text-align:left;">About Purva Venezia</h2>
+            <p style="font-size:1.05rem; margin-bottom:1.2rem;">Purva Venezia, powered by <strong>GETTA BUSINESS VENTURES PRIVATE LIMITED</strong>, brings an unmatched standard of sophistication. Located in Yeshwanthpur's thriving corridor, this exquisite development blends Venetian elegance with modern practicality.</p>
+            <p>Ground floor residences featuring premium finishes, spacious layouts, and proximity to tech parks, metro station, and top schools. Your sanctuary in the city.</p>
+          </div>
+          <div class="col" data-aos="fade-left">
+            <img src="https://placehold.co/600x400/F5EDE1/B78C4A?text=Architectural+Excellence" style="width:100%; border-radius: 28px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);" alt="Architecture">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ABOUT PAGE (hidden initially) -->
+  <div id="about-page" class="page-content hidden-page">
+    <div class="container">
+      <div class="page-card" data-aos="fade-up">
+        <h2 class="section-title" style="text-align:left;">About Purva Venezia</h2>
+        <p style="font-size:1.1rem; margin-bottom:1rem;"><strong>Powered by GETTA BUSINESS VENTURES PRIVATE LIMITED</strong> — A name synonymous with trust and excellence in real estate.</p>
+        <p>Purva Venezia is an exclusive residential enclave situated at Ground floor Survey No 269/3 Door No 1302 6th Cross Road KN EXTENTION Yeshwanthpur Bengaluru-560022. This project captures the charm of Venetian architecture while integrating eco-friendly practices and modern amenities.</p>
+        <br>
+        <h3>Why Purva Venezia?</h3>
+        <ul style="margin: 20px 0 20px 25px; line-height:1.7;">
+          <li><i class="fas fa-check-circle" style="color:#B78C4A;"></i> Prime location: Yeshwanthpur, connectivity to ORR, Metro, & Bangalore North</li>
+          <li><i class="fas fa-check-circle" style="color:#B78C4A;"></i> Ground floor luxury with private courtyard access</li>
+          <li><i class="fas fa-check-circle" style="color:#B78C4A;"></i> Thoughtful design & high-spec interiors</li>
+          <li><i class="fas fa-check-circle" style="color:#B78C4A;"></i> Developed under GETTA BUSINESS VENTURES with RERA compliance</li>
+        </ul>
+        <p>Our vision is to create a community where every detail reflects comfort, elegance, and timeless value. Contact us for a site visit.</p>
+        <div style="margin-top: 32px;"><a href="#" data-page="contact" class="btn-gold nav-link">Inquire Now</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT PAGE -->
+  <div id="contact-page" class="page-content hidden-page">
+    <div class="container">
+      <div class="two-col" style="margin: 50px 0;">
+        <div class="col" data-aos="fade-right">
+          <div class="contact-info">
+            <h2><i class="fas fa-address-card"></i> Get in Touch</h2>
+            <div class="contact-detail"><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> +91 9606904856</div>
+            <div class="contact-detail"><i class="fas fa-envelope"></i> <strong>Email:</strong> drharish77@gmail.com</div>
+            <div class="contact-detail"><i class="fas fa-map-pin"></i> <strong>Site Address:</strong> Ground floor Survey No 269/3 Door No 1302 6th Cross Road KN EXTENTION Yeshwanthpur, Bengaluru-560022</div>
+            <div class="contact-detail"><i class="fas fa-clock"></i> <strong>Office Hours:</strong> Mon-Sat: 10AM - 6PM</div>
+            <div style="margin-top: 20px;"><i class="fas fa-building"></i> GETTA BUSINESS VENTURES PRIVATE LIMITED</div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-left">
+          <div style="background:#faf5ee; padding: 32px; border-radius: 32px;">
+            <h3>Send a quick enquiry</h3>
+            <form id="inquiryForm">
+              <input type="text" placeholder="Your Name" required style="width:100%; padding:12px; margin:12px 0; border-radius: 40px; border:1px solid #ddd;">
+              <input type="email" placeholder="Email Address" required style="width:100%; padding:12px; margin:12px 0; border-radius: 40px; border:1px solid #ddd;">
+              <input type="tel" placeholder="Phone" style="width:100%; padding:12px; margin:12px 0; border-radius: 40px; border:1px solid #ddd;">
+              <textarea rows="3" placeholder="Message..." style="width:100%; padding:12px; border-radius: 24px; border:1px solid #ddd;"></textarea>
+              <button type="submit" class="btn-gold" style="margin-top: 16px; border:none;">Send Message</button>
+            </form>
+            <p id="formFeedback" style="margin-top:12px; font-size:0.9rem;"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIVACY POLICY PAGE -->
+  <div id="privacy-page" class="page-content hidden-page">
+    <div class="container">
+      <div class="page-card">
+        <h2 class="section-title" style="text-align:left;">Privacy Policy</h2>
+        <p><strong>Last updated:</strong> April 2026</p>
+        <p>GETTA BUSINESS VENTURES PRIVATE LIMITED (owner of Purva Venezia) respects your privacy. This policy outlines how we collect, use, and protect your personal information.</p>
+        <h3>Information Collection</h3>
+        <p>We collect personal details such as name, email, phone number when you voluntarily submit via contact forms or inquiries. This data is used solely for communication regarding real estate services.</p>
+        <h3>Data Security</h3>
+        <p>We implement industry-standard security measures to protect your data from unauthorized access. Your information is never sold or shared with third parties for marketing.</p>
+        <h3>Cookies</h3>
+        <p>Our website may use cookies to enhance user experience. You may disable cookies in browser settings.</p>
+        <h3>Your Rights</h3>
+        <p>You may request access, correction, or deletion of your data by emailing drharish77@gmail.com.</p>
+        <p>By using this site, you agree to this privacy policy.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS & CONDITIONS -->
+  <div id="terms-page" class="page-content hidden-page">
+    <div class="container">
+      <div class="page-card">
+        <h2 class="section-title" style="text-align:left;">Terms & Conditions</h2>
+        <p>Welcome to Purva Venezia website (Powered by GETTA BUSINESS VENTURES PRIVATE LIMITED). By accessing this site, you agree to comply with these terms.</p>
+        <h3>Use of Content</h3>
+        <p>All project details, images, and specifications are for informational purposes. Actual offerings may vary. We reserve the right to modify project plans and amenities.</p>
+        <h3>Intellectual Property</h3>
+        <p>All logos, designs, and content are property of GETTA BUSINESS VENTURES PVT LTD. Unauthorized reproduction is prohibited.</p>
+        <h3>Limitation of Liability</h3>
+        <p>We do not guarantee uninterrupted access. Any decisions based on website information are at your own discretion. For binding information, please visit our sales office.</p>
+        <h3>Governing Law</h3>
+        <p>These terms are governed by laws of India, Bengaluru jurisdiction.</p>
+        <p>Contact: drharish77@gmail.com for any legal queries.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Purva Venezia</h4>
+        <p>Powered by GETTA BUSINESS VENTURES PRIVATE LIMITED.<br>Luxury real estate in Yeshwanthpur.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <p><a href="#" data-page="home" class="nav-link">Home</a></p>
+        <p><a href="#" data-page="about" class="nav-link">About</a></p>
+        <p><a href="#" data-page="contact" class="nav-link">Contact</a></p>
+        <p><a href="#" data-page="privacy" class="nav-link">Privacy Policy</a></p>
+        <p><a href="#" data-page="terms" class="nav-link">Terms & Conditions</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Us</h4>
+        <p><i class="fas fa-location-dot"></i> Survey No 269/3, Door No 1302, 6th Cross Road, KN EXTENTION, Yeshwanthpur, Bengaluru-560022</p>
+        <p><i class="fas fa-phone"></i> +91 9606904856</p>
+        <p><i class="fas fa-envelope"></i> drharish77@gmail.com</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2026 Purva Venezia | Powered by GETTA BUSINESS VENTURES PRIVATE LIMITED. All rights reserved. | <i class="fas fa-copyright"></i> Aesthetic Realty</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true, offset: 80 });
+
+  // Page switching logic (single page style)
+  const pages = ['home', 'about', 'contact', 'privacy', 'terms'];
+  function showPage(pageId) {
+    pages.forEach(p => {
+      const el = document.getElementById(`${p}-page`);
+      if (el) {
+        if (p === pageId) {
+          el.classList.add('active-page');
+          el.classList.remove('hidden-page');
+        } else {
+          el.classList.remove('active-page');
+          el.classList.add('hidden-page');
+        }
+      }
+    });
+    // update nav active class
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const linkPage = link.getAttribute('data-page');
+      if (linkPage === pageId) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // attach event listeners for all .nav-link and also for footer links
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const page = link.getAttribute('data-page');
+      if (page && pages.includes(page)) {
+        showPage(page);
+      } else if (page === 'contact') {
+        showPage('contact');
+      }
+    });
+  });
+
+  // contact form handler
+  const form = document.getElementById('inquiryForm');
+  if(form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const feedback = document.getElementById('formFeedback');
+      feedback.innerHTML = '<i class="fas fa-check-circle" style="color:#B78C4A;"></i> Thank you! Our team will reach out shortly.';
+      feedback.style.color = '#2c6e2c';
+      form.reset();
+      setTimeout(() => { feedback.innerHTML = ''; }, 4000);
+    });
+  }
+
+  // set default home active
+  showPage('home');
+</script>
+<!-- additional inline ensure images are replaced with actual luxury imagery if needed but placeholders maintain aesthetic -->
+</body>
+</html>
